@@ -1,0 +1,78 @@
+=== E-Commerce Search Demo ===
+
+--- Text search ---
+  input (text): 'black shoes'
+  QueryService -> terms=['black', 'shoes'] filters={}
+  SearchService.retrieve -> 8 candidates
+  RankingService.rank -> top results (alpha, beta, gamma) = (0.9, 0.0, 0.1)
+   #  Product                 Price Stock  keyword cosine  S(x|q)
+   1  Nike Running Shoes        120    10        2  0.000   0.990
+   2  Black Leather Bag          80    20        1  0.000   0.550
+   3  Black Cotton T-Shirt       15    50        1  0.000   0.550
+   4  Adidas Running Shoes      100    15        1  0.000   0.545
+   5  Blue Sports Shoes          75    12        1  0.000   0.542
+
+--- Voice search ---
+  input (voice): <audio of 'find running shoes'>
+  SpeechService.transcribe -> 'find running shoes' (simulated STT)
+  QueryService -> terms=['running', 'shoes'] filters={}
+  SearchService.retrieve -> 5 candidates
+  RankingService.rank -> top results (alpha, beta, gamma) = (0.9, 0.0, 0.1)
+   #  Product                 Price Stock  keyword cosine  S(x|q)
+   1  Adidas Running Shoes      100    15        2  0.000   0.995
+   2  Nike Running Shoes        120    10        2  0.000   0.990
+   3  Red Running Shoes         110     7        2  0.000   0.987
+   4  Blue Sports Shoes          75    12        1  0.000   0.542
+   5  Nike Court Sneakers        85     0        1  0.000   0.450
+
+--- Text search ---
+  input (text): 'find Nike shoes under 100 dollars'
+  QueryService -> terms=['nike', 'shoes'] filters={'max_price': 100.0}
+  SearchService.retrieve -> 3 candidates
+  RankingService.rank -> top results (alpha, beta, gamma) = (0.9, 0.0, 0.1)
+   #  Product                 Price Stock  keyword cosine  S(x|q)
+   1  Nike Court Sneakers        85     0        2  0.000   0.900
+   2  Adidas Running Shoes      100    15        1  0.000   0.545
+   3  Blue Sports Shoes          75    12        1  0.000   0.542
+
+--- Image search ---
+  input (image): query_black_shoe.png
+  ImageService.encode -> 128-d embedding
+  SearchService.retrieve -> 5 candidates
+  RankingService.rank -> top results (alpha, beta, gamma) = (0.0, 0.9, 0.1)
+   #  Product                 Price Stock  keyword cosine  S(x|q)
+   1  Nike Running Shoes        120    10        0  0.896   0.896
+   2  Black Leather Bag          80    20        0  0.847   0.862
+   3  Black Cotton T-Shirt       15    50        0  0.774   0.796
+   4  Black Smart Watch         150     6        0  0.784   0.792
+   5  Blue Sports Shoes          75    12        0  0.436   0.484
+
+--- Multimodal search ---
+  input (text + image): 'running shoes' + query_red_shoe.png
+  lambda_t = 0.5, lambda_i = 0.5
+  QueryService -> terms=['running', 'shoes'] filters={}
+  SearchService.retrieve -> 6 candidates
+  RankingService.rank -> top results (alpha, beta, gamma) = (0.45, 0.45, 0.1)
+   #  Product                 Price Stock  keyword cosine  S(x|q)
+   1  Red Running Shoes         110     7        2  0.959   0.969
+   2  Nike Running Shoes        120    10        2  0.504   0.767
+   3  Adidas Running Shoes      100    15        2  0.413   0.731
+   4  Blue Sports Shoes          75    12        1  0.495   0.540
+   5  Red Canvas Backpack        60     8        0  0.808   0.452
+
+--- Order search ---
+  input (text): 'find my order O001'
+  QueryService -> order query (order_id=O001, latest=False)
+  Order: O001
+  Status: Shipped
+  Total: 150
+  Date: 2026-09-20  Customer: C001
+
+--- Order search ---
+  input (voice): <audio of 'where is my latest order'>
+  SpeechService.transcribe -> 'where is my latest order' (simulated STT)
+  QueryService -> order query (order_id=None, latest=True)
+  Order: 20261001
+  Status: Pending
+  Total: 25
+  Date: 2026-10-01  Customer: C001

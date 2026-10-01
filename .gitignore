@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.Assignment06_KHANHBQ.vpp.lck
+*.vpp.bak_*
+tmp/
+tmp_*.png

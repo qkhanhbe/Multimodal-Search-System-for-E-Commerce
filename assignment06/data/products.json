@@ -1,0 +1,14 @@
+[
+  {"id": 1,  "name": "Nike Running Shoes",   "category": "shoes", "brand": "Nike",     "color": "black", "price": 120, "stock": 10, "description": "lightweight road running shoes",      "image": "images/p01_nike_running_shoes.png"},
+  {"id": 2,  "name": "Adidas Running Shoes", "category": "shoes", "brand": "Adidas",   "color": "white", "price": 100, "stock": 15, "description": "cushioned running shoes for daily training", "image": "images/p02_adidas_running_shoes.png"},
+  {"id": 3,  "name": "Black Leather Bag",    "category": "bag",   "brand": "Lumi",     "color": "black", "price": 80,  "stock": 20, "description": "leather handbag with shoulder strap",  "image": "images/p03_black_leather_bag.png"},
+  {"id": 4,  "name": "Blue Sports Shoes",    "category": "shoes", "brand": "Puma",     "color": "blue",  "price": 75,  "stock": 12, "description": "sports shoes for gym and court",       "image": "images/p04_blue_sports_shoes.png"},
+  {"id": 5,  "name": "Nike Court Sneakers",  "category": "shoes", "brand": "Nike",     "color": "white", "price": 85,  "stock": 0,  "description": "classic court sneakers",               "image": "images/p05_nike_court_sneakers.png"},
+  {"id": 6,  "name": "Red Canvas Backpack",  "category": "bag",   "brand": "Herschel", "color": "red",   "price": 60,  "stock": 8,  "description": "canvas backpack for school and travel", "image": "images/p06_red_canvas_backpack.png"},
+  {"id": 7,  "name": "Black Cotton T-Shirt", "category": "shirt", "brand": "Uniqlo",   "color": "black", "price": 15,  "stock": 50, "description": "basic cotton t-shirt",                  "image": "images/p07_black_cotton_tshirt.png"},
+  {"id": 8,  "name": "White Polo Shirt",     "category": "shirt", "brand": "Lacoste",  "color": "white", "price": 70,  "stock": 9,  "description": "polo shirt with collar",                "image": "images/p08_white_polo_shirt.png"},
+  {"id": 9,  "name": "Blue Denim Cap",       "category": "cap",   "brand": "Levis",    "color": "blue",  "price": 25,  "stock": 30, "description": "denim baseball cap",                    "image": "images/p09_blue_denim_cap.png"},
+  {"id": 10, "name": "Black Smart Watch",    "category": "watch", "brand": "Xiaomi",   "color": "black", "price": 150, "stock": 6,  "description": "smart watch with heart rate sensor",    "image": "images/p10_black_smart_watch.png"},
+  {"id": 11, "name": "Silver Analog Watch",  "category": "watch", "brand": "Casio",    "color": "silver", "price": 55, "stock": 14, "description": "analog wrist watch with metal band",    "image": "images/p11_silver_analog_watch.png"},
+  {"id": 12, "name": "Red Running Shoes",    "category": "shoes", "brand": "Asics",    "color": "red",   "price": 110, "stock": 7,  "description": "running shoes with gel cushioning",     "image": "images/p12_red_running_shoes.png"}
+]
